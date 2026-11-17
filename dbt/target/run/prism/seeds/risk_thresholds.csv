@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "prism"."analytics"."risk_thresholds";
+    -- dbt seed --
+    
+          insert into "prism"."analytics"."risk_thresholds" ("divida_amarelo", "divida_vermelho", "juros_amarelo", "juros_vermelho", "rg_amarelo", "rg_vermelho") values
+          (%s,%s,%s,%s,%s,%s)
+      
+
+;
+  

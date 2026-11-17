@@ -1,0 +1,12 @@
+prism:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: prism
+      password: prism
+      port: 5432
+      dbname: prism
+      schema: analytics
+      threads: 4

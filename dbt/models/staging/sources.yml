@@ -1,0 +1,14 @@
+version: 2
+sources:
+  - name: bcb
+    schema: raw
+    loaded_at_field: carregado_em::timestamp
+    freshness:
+      warn_after: {count: 7, period: day}
+    tables:
+      - name: divida_bruta_pib
+      - name: divida_bruta_rs
+      - name: divida_liquida_pib
+      - name: pib_12m
+      - name: ipca_mensal
+      - name: selic_meta

@@ -1,0 +1,32 @@
+version: 2
+models:
+  - name: stg_divida_bruta_pib
+    columns:
+      - name: data_ref
+        tests: [not_null, unique]
+      - name: divida_bruta_pct_pib
+        tests:
+          - not_null
+          - dbt_utils.accepted_range: {min_value: 0, max_value: 200}
+  - name: stg_pib_12m
+    columns:
+      - name: data_ref
+        tests: [not_null, unique]
+      - name: pib_12m_rs_mi
+        tests:
+          - dbt_utils.accepted_range: {min_value: 0, inclusive: false}
+  - name: stg_ipca_mensal
+    columns:
+      - name: data_ref
+        tests: [not_null, unique]
+  - name: stg_selic_meta
+    columns:
+      - name: data_ref
+        tests: [not_null, unique]
+  - name: mart_risco_divida
+    columns:
+      - name: mes
+        tests: [not_null, unique]
+      - name: semaforo
+        tests:
+          - accepted_values: {values: ['verde', 'amarelo', 'vermelho']}
